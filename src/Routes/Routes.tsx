@@ -5,10 +5,12 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Welcome from "../pages/Auth/Welcome";
 import NotFound from "../pages/NotFound";
+import Layout from "../components/Auth/Layout";
 
 export const router = createBrowserRouter([
     {
         path:"/auth",
+        element: <Layout />,
         children: [
             {path: "welcome", element: <Welcome />},
             {path: "login", element: <Login />},
