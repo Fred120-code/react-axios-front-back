@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLocation, matchPath, Link } from "react-router-dom";
 import { Mail, MoveLeft, Rocket, UserRound, UserRoundPlus } from "lucide-react";
 import type { Step } from '../../types/index';
@@ -55,12 +54,12 @@ const ProgressSidebar = () => {
                                     index < steps.length - 1 && (
                                         <div
                                         className="absolute left-[1.9rem] top-[4rem] w-[2px] bg-gray-300"
-                                        style={{ height: "2.25rem" }}
+                                        style={{ height: "2.42rem" }}
                                         >
                                         </div>
                                     )
                                 }
-                                <div className='p-4 border rounded-2xl flex-center'>
+                                <div className='p-4 border-2 rounded-2xl flex-center'>
                                     <div className={`mt-1 ${isActive ? "text-gray-900 " : "text-gray-400"
                                         }`}>{step.icon}
                                     </div>
