@@ -2,7 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import logo2 from '../../assets/logo2.svg'
 import FromTitle from "../../components/FromTitle"
-import { Label } from "../../components/ui/Label"
+import Label from "../../components/ui/Label"
+import Input from "../../components/ui/Input"
 
 
 // fonction permettant de calculer la force du mots de passe
