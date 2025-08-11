@@ -4,6 +4,9 @@ import logo2 from '../../assets/logo2.svg'
 import FromTitle from "../../components/FromTitle"
 import {Label} from "../../components/ui/Label"
 import {Input} from "../../components/ui/Input"
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import {Button} from "../../components/ui/Button"
+import { AiFillGoogleCircle } from "react-icons/ai";
 
 
 // fonction permettant de calculer la force du mots de passe
@@ -42,7 +45,7 @@ const Register = () => {
   const strength = getPasswordStrength(password);
 
   return (
-    <div className="flex flex-col items-center m-20 gap-4 h-full px-10 w-full">
+    <div className="flex flex-col items-center m-20 gap-4 h-full px-10 w-7/8">
       <div>
           <img src={logo2} alt="logo2" />
       </div>
@@ -82,28 +85,77 @@ const Register = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="w-full focus:right-0 focus:border-blue-700 transition-all"
             />
+            <div className="mt-2 flex items-center space-x-1 w-full">
+              {
+                [1,2,3,4,5].map((segment,index)=>(
+                  <div
+                    key={index}
+                    className={`w-full h-1 ${
+                      index <strength 
+                          ? index === 0
+                            ?"bg-red-500"
+                            :index === 1
+                            ?"bg-orange-500"
+                            :index === 2
+                            ?"bg-yellow-500"
+                            :index === 3
+                            ? "bg-green-500"
+                            :"bg-blue-500"
+                          :"bg-gray-300"
+                    } rounded-b-full transition-colors duration-300`} >
+                  </div>
+                ))
+              }
+            </div>
         </div>
-        <div className="mt-2 flex items-center space-x-1 w-full">
-          {
-            [1,2,3,4,5].map((segment,index)=>(
-              <div
-                key={index}
-                className={`w-full h-1 ${
-                  index <strength 
-                      ? index === 0
-                        ?"bg-red-500"
-                        :index === 1
-                        ?"bg-orange-500"
-                        :index === 2
-                        ?"bg-yellow-500"
-                        :index === 3
-                        ? "bg-green-500"
-                        :"bg-blue-500"
-                      :"bg-gray-300"
-                } rounded-b-full transition-colors duration-300`} >
-              </div>
-            ))
-          }
+
+        <div className="flex items-center space-x-2">
+          <div className="w-full h-[1px] bg-gray-300"></div>
+          <span className="text-sm text-gray-500 whitespace-nowrap">OU AVEC</span>
+          <div className="w-full h-[1px] bg-gray-300"></div>
+        </div>
+
+        <div className="space-y-2">
+          <Button variant="outline" className="w-full space-x-2">
+            <GitHubLogoIcon/>
+            <h1 className="font-semibold">GitHub</h1>
+          </Button>
+          <Button variant="outline" className="w-full space-x-2">
+            <AiFillGoogleCircle className=""/>
+            <h1 className="font-semibold">Google</h1>
+          </Button>
+        </div>
+
+        <p className="text-sm text-gray-500 mt-4 text-center">
+            En cliquant sur continuer, vous acceptez nos{" "}
+            <a href="#" className="text-blue-500 hover:underline">
+              Conditions d'utilisation
+            </a>{" "}
+            et{" "}
+            <a href="#" className="text-blue-500 hover:underline">
+              Politique de confidentialité
+            </a>
+            .
+        </p>
+        <div className=" flex items-center space-x-1 w-full pt-12">
+          {[1, 2, 3, 4].map((index) => (
+            <div
+              key={index}
+              className={`w-full h-1 ${
+                index < 2
+                  ? index === 0
+                    ? "bg-red-500"
+                    : index === 1
+                    ? "bg-orange-500"
+                    : index === 2
+                    ? "bg-yellow-500"
+                    : index === 3
+                    ? "bg-green-500"
+                    : "bg-blue-500"
+                  : "bg-gray-300"
+              } rounded-full transition-colors duration-300`}
+            ></div>
+          ))}
         </div>
       </form>
     </div>
