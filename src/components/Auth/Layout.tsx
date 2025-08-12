@@ -8,7 +8,7 @@ const Layout = () => {
       <aside className="hidden w-1/3 lg:block bg-gray-100 p-6">
         <ProgressSidebar />
       </aside>
-      <main className="w-2/3 overflow-y-auto flex flex-col">
+      <main className="w-2/3 sm:w-full overflow-y-auto flex flex-col">
        <div className="flex flex-col flex-1 items-center">
          <Outlet />
          <ProgressBar/>
