@@ -58,7 +58,7 @@ const Invite = () => {
             className="w-full bg-blue-700/70 hover:bg-blue-800 transition-colors duration-300 cursor-pointer text-white font-semibold mt-4"
           >
             Créer le compte
-        </Button>
+          </Button>
         </form>
 
         <p className="text-sm text-gray-500 mt-6 text-center">
