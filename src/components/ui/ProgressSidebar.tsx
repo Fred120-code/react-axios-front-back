@@ -12,25 +12,25 @@ const steps: Step[] = [
   {
     path: "/auth/login",
     title: "Connexion",
-    descrip: "Connectez-vous à votre compte",
+    descrip: "Connectez-vous à votre compte.",
     icon: <MoveLeft />
   },
   {
-    path: "/auth/enter-otp",
-    title: "Entrer OTP",
-    descrip: "Entrez le code OTP envoyé à votre email",
+    path: "/auth/enter-otp/:email",
+    title: "Validation OTP",
+    descrip: "Confirmer votre adresse e-mail.",
     icon: <Mail />
   },
   {
     path: "/auth/invite",
-    title: "Inviter",
-    descrip: "Invitez vos amis",
+    title: "Invitez vos amis",
+    descrip: "Envoyez des invitations à vos amis.",
     icon: <UserRoundPlus />
   },
   {
     path: "/auth/welcome",
-    title: "Bienvenue",
-    descrip: "Bienvenue dans notre application",
+    title: "Bienvenue à Worketyamo",
+    descrip: "Votre inscription est terminée.",
     icon: <Rocket />
   }
 ];
