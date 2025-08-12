@@ -144,26 +144,6 @@ const Register = () => {
             </a>
             .
         </p>
-        <div className=" flex items-center space-x-1 w-full pt-12">
-          {[1, 2, 3, 4].map((index) => (
-            <div
-              key={index}
-              className={`w-full h-1 ${
-                index < 2
-                  ? index === 0
-                    ? "bg-red-500"
-                    : index === 1
-                    ? "bg-orange-500"
-                    : index === 2
-                    ? "bg-yellow-500"
-                    : index === 3
-                    ? "bg-green-500"
-                    : "bg-blue-500"
-                  : "bg-gray-300"
-              } rounded-full transition-colors duration-300`}
-            ></div>
-          ))}
-        </div>
       </form>
     </div>
   )
