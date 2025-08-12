@@ -1,5 +1,5 @@
 import { useLocation, matchPath, Link } from "react-router-dom";
-import { Mail, MoveLeft, Rocket, UserRound, UserRoundPlus } from "lucide-react";
+import { Mail, LogIn, Rocket, UserRound,MoveLeft, UserRoundPlus } from "lucide-react";
 import type { Step } from '../../types/index';
 import logo from "../../assets/logo.svg";
 const steps: Step[] = [
@@ -13,7 +13,7 @@ const steps: Step[] = [
     path: "/auth/login",
     title: "Connexion",
     descrip: "Connectez-vous à votre compte.",
-    icon: <MoveLeft />
+    icon: <LogIn />
   },
   {
     path: "/auth/enter-otp/:email",

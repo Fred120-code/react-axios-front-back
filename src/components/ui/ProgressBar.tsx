@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 const steps = [
   { path: "/auth/register", color: "bg-red-500" },
   { path: "/auth/login", color: "bg-orange-500" },
-  { path: "/auth/enter-otp", color: "bg-gradient-to-r from-orange-400 to-blue-950 from-5%" },
+  { path: "/auth/enter-otp", color: "bg-gradient-to-r from-orange-400 to-blue-950 from-55% " },
   { path: "/auth/invite", color: "bg-gradient-to-r from-orange-400 to-blue-900 from-1% to-70%" },
   { path: "/auth/welcome", color: "bg-blue-900" },
 ];
