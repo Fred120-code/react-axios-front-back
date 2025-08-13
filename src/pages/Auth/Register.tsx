@@ -7,10 +7,11 @@ import {Input} from "../../components/ui/Input"
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import {Button} from "../../components/ui/Button"
 import { AiFillGoogleCircle } from "react-icons/ai";
+import { register } from "../../services/api"
 
 
 // fonction permettant de calculer la force du mots de passe
-const getPasswordStrength = (password:string)=>{
+const getPasswordStrength = (password:string) => { 
   let score = 0
 
   //possede la taille minimun
@@ -33,13 +34,25 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // <-- Ajout gestion erreur
+  const [loading, setLoading] = useState(false); // <-- Ajout gestion loading
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-    //API call
-    navigate(`/auth/enter-otp/${email}`);
+    setLoading(true);
+    setError("");
+    
+    try {
+      const res = await register({ name, email, password });
+      // Si succès, redirige vers la page OTP
+      navigate(`/auth/enter-otp/${email}`);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Erreur lors de l'inscription");
+    } finally {
+      setLoading(false);
+    }
+
   };
 
   const strength = getPasswordStrength(password);
@@ -64,7 +77,7 @@ const Register = () => {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
                     className="w-full focus:right-0 focus:border-blue-700 transition-all"
-            />
+        />
         </div>
         <div>
             <Label htmlFor="email">Email</Label>
@@ -129,9 +142,11 @@ const Register = () => {
         <Button
             type="submit"
             className="w-full bg-blue-700/70 hover:bg-blue-800 transition-colors duration-300 cursor-pointer text-white font-semibold mt-4"
+            disabled={loading}
           >
-            Créer le compte
+             {loading ? "Création..." : "Créer le compte"}
         </Button>
+        {error && <p className="text-red-500 text-center mt-2">{error}</p>}
 
         <p className="text-sm text-gray-500 mt-4 text-center">
             En cliquant sur continuer, vous acceptez nos{" "}

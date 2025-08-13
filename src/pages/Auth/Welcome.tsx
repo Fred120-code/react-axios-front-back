@@ -1,5 +1,4 @@
 import FormTitle from "../../components/FromTitle";
-
 import { Button } from "../../components/ui/Button";
 import { Link } from "react-router-dom";
 import image2 from "../../assets/images 2.svg"
@@ -34,7 +33,7 @@ const Welcome = () => {
         </Button>
       </Link>
 
-      <p className="text-sm text-gray-500 mt-6 text-center px-12 lg:px-0">
+      <p className="text-sm text-gray-500 mt-6 text-center px-12 lg:px-0 w-2/3">
         By clicking continue, you agree to our{" "}
         <a href="#" className="text-blue-500 hover:underline">
           Terms of Service
